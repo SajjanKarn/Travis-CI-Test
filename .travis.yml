@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "18" # Adjust based on your Node.js version
+
+cache: npm
+
+install:
+  - npm ci # Uses package-lock.json for faster, more reliable installs
+
+script:
+  - npm test # This will run your test script (placeholder for now)
+  - npm run build # This will compile TypeScript to JavaScript
+
+branches:
+  only:
+    - main # Or your default branch name
+
+deploy:
+  provider: script
+  skip_cleanup: true # Prevents Travis from cleaning up files generated during the build
+  script: bash deploy.sh
+  on:
+    branch: main
