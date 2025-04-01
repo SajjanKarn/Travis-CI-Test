@@ -8,7 +8,7 @@ eval "$(ssh-agent -s)"
 ssh-add deploy_key
 
 echo "Deploying to EC2..."
-ssh -o StrictHostKeyChecking=no ubuntu@$15.206.247.0 <<EOF
+ssh -i demo-test.pem -o StrictHostKeyChecking=no ubuntu@15.206.247.0 <<EOF
   cd /home/ubuntu/Travis-CI-Test
   git pull origin main
   npm install
